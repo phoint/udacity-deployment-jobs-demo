@@ -1,11 +1,11 @@
 # Exercise - Rollback
 AWSTemplateFormatVersion: 2010-09-09
-Description: ND9991 C3 L4 
-  Parameters:
-    AmiToUse:
-      Type: String
-      Default: ami-006e00d6ac75d2ebb
-      Description: Enter ami to create an instance base region
+Description: "ND9991 C3 L4"
+Parameters:
+  AmiToUse:
+    Type: String
+    Default: ami-006e00d6ac75d2ebb
+    Description: Enter ami to create an instance base region
 Resources:
   EC2Instance:
     Type: 'AWS::EC2::Instance'
