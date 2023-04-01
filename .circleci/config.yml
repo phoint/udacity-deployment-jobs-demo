@@ -33,6 +33,10 @@ jobs:
             --template-file template.yml \
             --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
             --region us-east-1
+    - run:
+        name: "Purposeful error"
+        command: return 1
+    - destroy_environment
 
   # Exercise: Config and Deployment
   configure_infrastructure: 
@@ -59,7 +63,7 @@ jobs:
       - run:
           name: Test job
           command: return 1
-      - destroy_environment
+      # - destroy_environment #this command can not run in this docker image because missing aws cli
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -68,4 +72,4 @@ workflows:
     jobs:
     - create-infrastructure
     # - configure_infrastructure
-    - smoke_test
+    # - smoke_test
